@@ -57,7 +57,6 @@ void drawsubhead(float x, float y, float z, char *string)
     }
 }
 
-// Desenha o núcleo do átomo
 void nuc1(float rad)
 {
     glBegin(GL_POLYGON);
@@ -124,7 +123,6 @@ void eledown(float rad)
     glEnd();
 }
 
-// Desenha o elétron
 void eletr(float rad)
 {
     glBegin(GL_POLYGON);
@@ -202,8 +200,63 @@ void display()
     if (value == 1)
     {
         char na_label[] = "Na";
+        char f_label[]= "F";
         char molec_label[] = "Sodium Fluoride (NaF)";
+        
+        drawhead(-200, 450, 0, molec_label);
 
+        glPushMatrix();
+        glTranslatef(-500, 0, 0);
+        drawString(-10, 0, 0, na_label);
+        circle(100);
+        circle(200);
+        circle(300);
+        glPushMatrix();
+            glRotatef(angle, 0, 0, 1);
+            eletop(100);
+            eledown(100);
+        
+            eletop(200);
+            eledown(200);
+            eleleft(200);
+            eleright(200);
+            eletl(320);
+            eletr(320);
+            eledl(320);
+            eledr(320);
+        
+            eletop(300);
+        glPopMatrix();
+        glPopMatrix();
+        
+        glPushMatrix();
+        glTranslatef(500, 0, 0);
+        drawString(-10, 0, 0, f_label);
+        circle(100);
+        circle(200);
+        glPushMatrix();
+            glRotatef(angle, 0, 0, 1);
+            eletop(100);
+            eledown(100);
+        
+            eletop(200);
+            eledown(200);
+            eleleft(200);
+            eleright(200);
+            eletr(320);
+            eledl(320);
+            eledr(320);
+        glPopMatrix();
+        glPopMatrix();
+
+        glutSwapBuffers();
+    }
+    if (value == 2)
+    {
+        char na_label[] = "Na +";
+        char f_label[]= "F -";
+        char molec_label[] = "Sodium Fluoride (NaF)";
+        
         drawhead(-200, 450, 0, molec_label);
 
         glPushMatrix();
@@ -215,10 +268,142 @@ void display()
             glRotatef(angle, 0, 0, 1);
             eletop(100);
             eledown(100);
+        
             eletop(200);
             eledown(200);
             eleleft(200);
             eleright(200);
+            eletl(320);
+            eletr(320);
+            eledl(320);
+            eledr(320);
+        glPopMatrix();
+        glPopMatrix();
+        
+        glPushMatrix();
+        glTranslatef(500, 0, 0);
+        drawString(-10, 0, 0, f_label);
+        circle(100);
+        circle(200);
+        glPushMatrix();
+            glRotatef(angle, 0, 0, 1);
+            eletop(100);
+            eledown(100);
+        
+            eletop(200);
+            eledown(200);
+            eleleft(200);
+            eleright(200);
+            eletl(320);
+            eletr(320);
+            eledl(320);
+            eledr(320);
+        glPopMatrix();
+        glPopMatrix();
+
+        glutSwapBuffers();
+    }
+    if (value == 3)
+    {
+        char li_label[] = "Li";
+        char cl_label[]= "Cl";
+        char molec_label[] = "Lithium Chloride (LiCl)";
+        
+        drawhead(-200, 450, 0, molec_label);
+
+        glPushMatrix();
+        glTranslatef(-500, 0, 0);
+        drawString(-10, 0, 0, li_label);
+        circle(100);
+        circle(200);
+        glPushMatrix();
+            glRotatef(angle, 0, 0, 1);
+            eletop(100);
+            eledown(100);
+        
+            eletop(200);
+        glPopMatrix();
+        glPopMatrix();
+        
+        glPushMatrix();
+        glTranslatef(500, 0, 0);
+        drawString(-10, 0, 0, cl_label);
+        circle(100);
+        circle(200);
+        circle(300);
+        glPushMatrix();
+            glRotatef(angle, 0, 0, 1);
+            eletop(100);
+            eledown(100);
+        
+            eletop(200);
+            eledown(200);
+            eleleft(200);
+            eleright(200);
+            eletl(320);
+            eletr(320);
+            eledl(320);
+            eledr(320);
+        
+            eletop(300);
+            eledown(300);
+            eleleft(300);
+            eleright(300);
+            eletr(390);
+            eledl(390);
+            eledr(390);
+        glPopMatrix();
+        glPopMatrix();
+
+        glutSwapBuffers();
+    }
+    if (value == 4)
+    {
+        char li_label[] = "Li +";
+        char cl_label[]= "Cl -";
+        char molec_label[] = "Lithium Chloride (LiCl)";
+        
+        drawhead(-200, 450, 0, molec_label);
+
+        glPushMatrix();
+        glTranslatef(-500, 0, 0);
+        drawString(-10, 0, 0, li_label);
+        circle(100);
+        glPushMatrix();
+            glRotatef(angle, 0, 0, 1);
+            eletop(100);
+            eledown(100);
+        glPopMatrix();
+        glPopMatrix();
+        
+        glPushMatrix();
+        glTranslatef(500, 0, 0);
+        drawString(-10, 0, 0, cl_label);
+        circle(100);
+        circle(200);
+        circle(300);
+        glPushMatrix();
+            glRotatef(angle, 0, 0, 1);
+            eletop(100);
+            eledown(100);
+        
+            eletop(200);
+            eledown(200);
+            eleleft(200);
+            eleright(200);
+            eletl(320);
+            eletr(320);
+            eledl(320);
+            eledr(320);
+        
+            eletop(300);
+            eledown(300);
+            eleleft(300);
+            eleright(300);
+            eletl(390);
+            eletr(390);
+            eledl(390);
+            eledr(390);
         glPopMatrix();
         glPopMatrix();
 
@@ -295,11 +480,29 @@ void menu(int option)
     }
     else if (option == 11)
     {
-        glutIdleFunc(rotate);
+        if(value == 1)
+        {
+            value = 2;
+            glutIdleFunc(rotate);
+        }
+        if (value == 3)
+        {
+            value = 4;
+            glutIdleFunc(rotate);
+        }
     }
     else if (option == 12)
     {
-        glutIdleFunc(NULL);
+         if(value == 2)
+        {
+            value = 1;
+            glutIdleFunc(NULL);
+        }
+        if (value == 4)
+        {
+            value = 3;
+            glutIdleFunc(NULL);
+        }
     }
     else if(option==14){
         value=-1;
@@ -308,8 +511,8 @@ void menu(int option)
     {
         value = option;
     }
-    glClear(GL_COLOR_BUFFER_BIT);
-
+    
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glutPostRedisplay();
 }
 
@@ -317,6 +520,7 @@ void createMenu(void)
 {
     submenu = glutCreateMenu(menu);
     glutAddMenuEntry("NaF", 1);
+    glutAddMenuEntry("LiCl", 3);
 
     mainmenu = glutCreateMenu(menu);
     glutAddSubMenu("SELECT A MOLECULE", submenu);
